@@ -72,7 +72,7 @@ artifacts/
 *.pidb
 *.svclog
 *.sc
-*.dox
+*.docx
 *.doc
 *.txt
 
