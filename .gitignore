@@ -71,7 +71,11 @@ artifacts/
 .builds
 *.pidb
 *.svclog
-*.scc
+*.sc
+*.dox
+*.doc
+*.txt
+
 
 # Chutzpah Test files
 _Chutzpah*
