@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sumator</title>
+</head>
+
+<body>
+    <form>
+
+        <div>First Number:</div>
+        <div><input type="number" id="num1"></div>
+        <div>Second Number:</div>
+        <div><input type="number" id="num2"></div>
+        <div><input type="button" value="Calculate Sum" onclick="sumNumbers()"></div>
+        <div>Result: <span id="result"></span></div>
+    </form>
+    <script>
+        function sumNumbers() {
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+            let sum = num1 + num2;
+            document.getElementById('result').innerHTML = sum; //textContent can be written on teh place of inner HTML
+            //innerHTML is not good practice because can be easily abused by hackers
+        }
+    </script>
+</body>
+
+</html>
