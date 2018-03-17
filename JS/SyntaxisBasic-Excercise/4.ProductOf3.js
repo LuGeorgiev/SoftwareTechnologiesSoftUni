@@ -1,11 +1,10 @@
 /*jshint esversion: 6 */
 function solve(args) {
-    const nums = args.split(' ')
-        .map(x => Number(x));
+
     let minusCounter = 0;
 
-    for (const num of nums) {
-        if (num < 0) {
+    for (const num of args) {
+        if (+num < 0) {
             minusCounter += 1;
         }
     }

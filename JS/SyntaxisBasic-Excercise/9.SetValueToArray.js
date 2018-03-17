@@ -7,8 +7,13 @@ function solve(args) {
     }
 
     for (let index = 1; index < args.length; index++) {
-        const element = array[index];
+        const input = args[index].split(' - ')
+            .map(Number);
+        arr[input[0]] = input[1];
+    }
+    for (const iterator of arr) {
+        console.log(iterator);
 
     }
 }
-solve('6');
+solve(['3', '0 - 5', '1 - 6', '2 - 7']);

@@ -43,28 +43,28 @@ function solve([n]) {
 // let object = JSON.parse(str);
 
 //Fifth Lab
-// function solve(arr) {
-//     let input = arr.map(line => JSON.parse(line));
-//     let towns = {};
+function solve(arr) {
+    let input = arr.map(line => JSON.parse(line));
+    let towns = {};
 
-//     for (const entry of input) {
-//         if (towns[entry.town] === 'undefined') {
-//             towns[entry.town] = 0;
-//         }
-//         towns[entry.town] += entry.income;
-//     }
-//     let townNames = Object.keys(towns).sort();
-//     for (const name of townNames) {
-//         console.log(`${name} -> ${towns[name]}`);
-//     }
+    for (const entry of input) {
+        if (towns[entry.town] === 'undefined') {
+            towns[entry.town] = 0;
+        }
+        towns[entry.town] += entry.income;
+    }
+    let townNames = Object.keys(towns).sort();
+    for (const name of townNames) {
+        console.log(`${name} -> ${towns[name]}`);
+    }
 
-// }
+}
 
-// solve([
-//     '{"town":"Sofia","income":200}',
-//     '{"town":"Varna","income":120}',
-//     '{"town":"Pleven","income":60}',
-//     '{"town":"Varna","income":70}'
-// ]);
+solve([
+    '{"town":"Sofia","income":200}',
+    '{"town":"Varna","income":120}',
+    '{"town":"Pleven","income":60}',
+    '{"town":"Varna","income":70}'
+]);
 
 //Sixth Lab
