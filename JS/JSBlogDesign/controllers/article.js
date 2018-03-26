@@ -1,4 +1,6 @@
 const Article = require('../models').Article;
+const User = require('../models').User;
+
 
 module.exports = {
     createGet: (req, res) => {
@@ -6,37 +8,27 @@ module.exports = {
     },
     createPost: (req, res) => {
         let articleArgs = req.body;
-        //take values
-        const content = req.body.content;
-        const title = req.body.title;
-        let errorMsg = '';
 
+        let errorMsg = '';
         if (!req.isAuthenticated()) {
-            errorMsg = 'Log before creating articles';
-        } else if (!articleArgs.content) {
-            errorMsg = 'content cannot be empty';
+            errorMsg = 'You should be logged in to make articles';
         } else if (!articleArgs.title) {
-            errorMsg = 'title cannot be empty';
+            errorMsg = 'Invalid title';
+        } else if (!articleArgs.content) {
+            errorMsg = 'Invalid content';
         }
 
         if (errorMsg) {
             res.render('article/create', { error: errorMsg });
             return;
         }
-        //find author
         articleArgs.authorId = req.user.id;
-        //validate input
-        //copy them in DB
-
         Article.create(articleArgs).then(article => {
             res.redirect('/');
         }).catch(err => {
             console.log(err.message);
             res.render('article/create', { error: err.message });
-
         });
-
-        //redirect after Articles was uplodaded (redirect to /)
     },
     details: (req, res) => {
         let id = req.params.id;
@@ -44,8 +36,10 @@ module.exports = {
             include: [{
                 model: User
             }]
+
         }).then(article => {
-            res.render('article/details', article.dataValues)
+            res.render('article/details', article.dataValues);
         });
     }
+
 };

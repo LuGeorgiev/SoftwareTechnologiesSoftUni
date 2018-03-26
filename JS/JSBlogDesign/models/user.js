@@ -30,8 +30,7 @@ module.exports = function(sequelize) {
         let inputPasswordHash = encryption.hashPassword(password, this.salt);
         return inputPasswordHash === this.passwordHash;
     };
-
-    User.associate = function(models) {
+    User.associate = (models) => {
         User.hasMany(models.Article, {
             foreignKey: 'authorId',
             sourceKey: 'id'

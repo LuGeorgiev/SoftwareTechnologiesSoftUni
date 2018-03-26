@@ -42,9 +42,9 @@ async function create(models) {
     await sequelize
         .authenticate()
         .then(function(err) {
-            console.log('\x1b[32m%s\x1b[0m', 'Connection has been established successfully.');
+            console.log('\x1b[32m%s\x1b[0m','Connection has been established successfully.');
         })
-        .catch(function(err) {
+        .catch(function (err) {
             console.error('Unable to connect to the database!');
             process.exit(1);
         });

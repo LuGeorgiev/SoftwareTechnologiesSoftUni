@@ -1,5 +1,5 @@
+/*jshint esversion: 6*/
 const Sequelize = require('sequelize');
-
 module.exports = function(sequelize) {
     const Article = sequelize.define('Article', {
         title: {
@@ -9,17 +9,16 @@ module.exports = function(sequelize) {
         },
         content: {
             type: Sequelize.TEXT,
-            require: true,
-            allowNull: false
+            allowNull: false,
+            require: true
         },
         date: {
             type: Sequelize.DATE,
-            require: true,
             allowNull: false,
+            require: true,
             defaultValue: Sequelize.NOW
         }
     });
-
     Article.associate = function(models) {
         Article.belongsTo(models.User, {
             foreignKey: 'authorId',
@@ -27,4 +26,4 @@ module.exports = function(sequelize) {
         });
     };
     return Article;
-}
+};

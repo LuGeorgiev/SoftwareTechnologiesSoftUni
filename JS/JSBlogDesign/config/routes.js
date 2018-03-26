@@ -1,6 +1,7 @@
-const userController = require('../controllers').user;
-const homeController = require('./../controllers/home');
+const userController = require('../controllers/user');
+const homeController = require('../controllers/home');
 const articleController = require('../controllers/article');
+
 
 
 module.exports = (app) => {
@@ -8,7 +9,6 @@ module.exports = (app) => {
 
     app.get('/user/register', userController.registerGet);
     app.post('/user/register', userController.registerPost);
-
     app.get('/user/login', userController.loginGet);
     app.post('/user/login', userController.loginPost);
 

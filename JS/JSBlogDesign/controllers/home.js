@@ -1,3 +1,6 @@
+const Article = require('../models').Article;
+const User = require('../models').User;
+
 module.exports = {
     index: (req, res) => {
         Article.findAll({
@@ -5,7 +8,7 @@ module.exports = {
             include: [{
                 model: User
             }]
-        }).then(artticle => {
+        }).then(articles => {
             res.render('home/index', { articles: articles });
         });
     }
