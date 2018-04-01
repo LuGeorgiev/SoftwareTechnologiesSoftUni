@@ -318,3 +318,5 @@ coverage
 
 # Benchmarking
 benchmarks/graphs
+
+/vendor/
